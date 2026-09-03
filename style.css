@@ -143,8 +143,9 @@ section[id], header[id] {
 }
 
 /* Hamburger button — hidden on desktop, always tappable on mobile.
-   Kept as one clean rule set (previous duplicated/conflicting
-   declarations were the source of the unreliable mobile tap target). */
+   Consolidated into a single rule set (a duplicated/invalid
+   "##nav-toggle" selector previously left the three bars completely
+   unstyled, so the button existed but its icon never rendered). */
 #nav-toggle {
     display: none;
     flex-direction: column;
@@ -165,13 +166,16 @@ section[id], header[id] {
     pointer-events: auto;
 }
 
+/* The three bars themselves — this rule was missing before, which is
+   why the hamburger icon was invisible on mobile even though the
+   button was there and tappable. */
 #nav-toggle span {
     display: block;
-    height: 2px;
     width: 22px;
+    height: 2px;
     background: var(--forest-deep);
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    pointer-events: none;
+    border-radius: 2px;
+    transition: transform 0.28s ease, opacity 0.2s ease;
 }
 
 #nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
