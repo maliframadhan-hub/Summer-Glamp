@@ -193,7 +193,7 @@ section[id], header[id] {
     align-items: flex-end;
     background:
         linear-gradient(180deg, rgba(33,46,28,0.25) 0%, rgba(33,46,28,0.55) 75%, rgba(33,46,28,0.8) 100%),
-        url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1657790823837-e2ce64fb8785?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
     padding: 3rem 6% 5rem;
 }
 

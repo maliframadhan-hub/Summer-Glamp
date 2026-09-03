@@ -44,26 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------------------------------------------------------------------
-     Highlight active nav link while scrolling
+    /* ---------------------------------------------------------------------
+     Nav link aktif hanya saat diklik (bukan scroll-spy)
      --------------------------------------------------------------------- */
-  const sections = document.querySelectorAll('main section[id]');
   const navItems = document.querySelectorAll('#nav-links a[data-nav]');
 
-  if ('IntersectionObserver' in window && sections.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navItems.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-
-    sections.forEach(section => observer.observe(section));
-  }
+  navItems.forEach(link => {
+    link.addEventListener('click', () => {
+      navItems.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
 
   /* ---------------------------------------------------------------------
      Nav shadow on scroll
